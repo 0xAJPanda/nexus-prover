@@ -1,4 +1,7 @@
 #!/bin/bash
+
+
+
 BOLD=$(tput bold)
 NORMAL=$(tput sgr0)
 PINK='\033[1;35m'
@@ -59,10 +62,7 @@ fi
 cd $HOME/network-api/clients/cli
 
 show "Installing required dependencies..." "progress"
-if ! sudo apt install pkg-config libssl-dev protobuf-compiler -y; then
-    show "Failed to install dependencies." "error"
-    exit 1
-fi
+sudo apt update && sudo apt upgrade && sudo apt install wget build-essential pkg-config libssl-dev unzip -y && wget https://github.com/protocolbuffers/protobuf/releases/download/v21.5/protoc-21.5-linux-x86_64.zip && unzip -o protoc-21.5-linux-x86_64.zip -d protoc && sudo mv protoc/bin/protoc /usr/local/bin/ && sudo mv protoc/include/* /usr/local/include/
 
 if systemctl is-active --quiet nexus.service; then
     show "nexus.service is currently running. Stopping and disabling it..."
