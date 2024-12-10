@@ -6,10 +6,7 @@
 
 ---
 This script is compatible with Ubuntu on local system as well as on VPS
-- If you run on VPS, u don't need to do anything after running the installation commands
-```bash
-sudo systemctl start nexus.service
-```
+
 
 ## Installation
 - You can use either this command
